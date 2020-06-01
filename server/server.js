@@ -1,9 +1,18 @@
+/*
+    Node: A "runtime" application on your computer
+    Express: A "module" that adds HTTP functionality to a Node Program
+*/
+// Bring in express using require()
+            // <--- require is a function, it "returns" a bunch of "express" stuff in an object/module
+
 //bring in express
 const express = require('express');
+
 
 // Include the 'body-parser' module, which comes with express
 // This allows us to access request.body on HTTP POSTs
 // as a javascript object
+// middleware: does stuff for us automatically
 const bodyParser = require('body-parser');
 
 // Let's create our server object
@@ -11,7 +20,9 @@ const app = express();
 //set up a port
 const PORT = 5000;
 
-// This must be added before GET & POST routes.
+/********* SET UP OUR MIDDLEWARE ******************/
+// Set up the body parser middleware
+// parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Serve up static files (HTML, CSS, Client JS)
@@ -90,6 +101,20 @@ app.post('/calculate', (req, res) => {
 
     res.send(result);
 });
+
+//app.use ( ... some middleware function result ... );
+/*/////////////////////////////////////////////////*/
+// set up a new HTTP handler
+// respond to http://localhost:500/history
+// WHEN SOMETHING HAPPENS :: CALL THIS FUNCTION
+// WHEN THE USER STARTS A PROGRAM :: CALL ALL THIS JS
+// WHEN A USER CLICKS A BUTTON :: CALL THIS FUNCTION
+// WHEN AN INCOMING REQUEST MATCHES 'GET /history'
+//  :: CALL THIS FUNCTION
+// when the user clicks a button:
+    // --> call this function!
+
+
 
 
 
