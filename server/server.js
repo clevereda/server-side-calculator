@@ -17,8 +17,7 @@ const bodyParser = require('body-parser');
 
 // Let's create our server object
 const app = express();
-//set up a port
-const PORT = 5000;
+
 
 /********* SET UP OUR MIDDLEWARE ******************/
 // Set up the body parser middleware
@@ -125,6 +124,7 @@ app.get('/history', (req, res) => {
 
 
 
-app.listen(PORT, () => {
-    console.log('Server is running on port', PORT);
+const port = process.env.PORT || 5000;
+app.listen(port, () => {
+    console.log(`Listening on http://localhost:${port}`);
 });
